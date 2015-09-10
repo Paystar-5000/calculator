@@ -13,7 +13,7 @@ class Calculator
   end
 
   def divide *numbers
-    numbers.inject(:/)
+    numbers.inject(:div)
   end
 
 end
