@@ -12,4 +12,8 @@ class Calculator
     numbers.inject(:*)
   end
 
+  def divide *numbers
+    numbers.inject(:div)
+  end
+
 end

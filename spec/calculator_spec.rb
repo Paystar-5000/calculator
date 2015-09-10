@@ -112,5 +112,52 @@ describe Calculator do
       end
     end
   end
+  
+  describe "#divide" do
 
+    it "return an integer" do
+      expect(Calculator.new.divide(5,1)).to be_an(Integer)
+    end
+
+    it "return the quotient of its two arguments" do
+      expect(Calculator.new.divide(4,2)).to eq(2)
+      expect(Calculator.new.divide(9,3)).to eq(3)
+    end
+
+    context "when I divide two numbers" do
+      it "returns the correct result dependent of order" do
+        expect(calc.divide(10,2)).not_to eq(calc.divide(2,10))
+      end
+    end
+
+    context "when I divide an integer by one" do
+      it "returns the integer" do
+        expect(calc.divide(5,1)).to eq(5)
+      end
+    end
+
+    context "when I divide zero by an integer" do
+      it "returns zero" do
+        expect(calc.divide(0,10)).to eq(0)
+      end
+    end
+
+    context "when I divide an integer by zero" do
+      it "should raise a ZeroDivisionError error" do
+        expect {calc.divide(10,0)}.to raise_error(ZeroDivisionError)
+      end
+    end
+
+    context "when I divide an integer by itself" do
+      it "should equal one" do
+        expect(calc.divide(5,5)).to eq(1)
+      end
+    end
+
+    context "when I divide more than two numbers" do
+      it "returns the correct result" do
+        expect(calc.divide(100,2,5)).to eq(10)
+      end
+    end
+  end
 end
