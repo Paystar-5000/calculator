@@ -40,8 +40,8 @@ describe Calculator do
       end
     end
   end
-
-    describe "#subtract" do
+  
+  describe "#subtract" do
 
     it "return an integer" do
       expect(Calculator.new.subtract(5,4)).to be_an(Integer)
@@ -78,4 +78,39 @@ describe Calculator do
     end
   end
   
+  describe "#multiply" do
+
+    it "return an integer" do
+      expect(Calculator.new.multiply(10,10)).to be_an(Integer)
+    end
+
+    it "return the product of its two arguments" do
+      expect(Calculator.new.multiply(10,2)).to eq(20)
+    end
+
+    context "when I multiply two numbers" do
+      it "returns the correct product regardless of order" do
+        expect(calc.multiply(10,2)).to eq(calc.multiply(2,10))
+      end
+    end
+
+    context "when I multiply one to an integer" do
+      it "returns the integer" do
+        expect(calc.multiply(5,1)).to eq(5)
+      end
+    end
+
+    context "when I multiply zero to an integer" do
+      it "returns zero" do
+        expect(calc.multiply(5,0)).to eq(0)
+      end
+    end
+
+    context "when I multiply more than two numbers" do
+      it "returns the correct product" do
+        expect(calc.multiply(1,2,3,4)).to eq(24)
+      end
+    end
+  end
+
 end
